@@ -1,0 +1,26 @@
+list <- INPUT list
+low <- INPUT lowest value in range
+high <- INPUT highest value in range
+
+FUNCTION BINARY-SEARCH(list, low, high):
+    L <- LENGTH(list)                                           //1
+    r <- list[round(L/2)]                                       //1
+    IF L = 1 AND r < low OR r > high+1                          //3
+        RETURN False                                            //1
+    ELSEIF r >= low AND r <= high                               //1
+        RETURN True                                             //1
+    ELSEIF low > r                                              //1
+        RETURN BINARY-SEARCH(list[round(L/2)..-1],low,high)     //log2(n)
+    ELSEIF high+1 < r                                           //1
+        RETURN BINARY-SEARCH(list[0..round(L/2)],low,high)      //log2(n)
+    ELSE                                                        //1
+        RETURN False                                            //1
+
+OUTPUT BINARY-SEARCH(list,low,high)
+
+
+// Efficiency total: 2log2(n) + 12
+// Big(O) value = O(log(n))
+// Best case O(1) as value could be found on first run.
+// The recursive function are log2(n) (Base 2) as everytime
+// we run the function the list length is divided by 2.

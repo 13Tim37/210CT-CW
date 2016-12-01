@@ -1,0 +1,16 @@
+s <- INPUT STRING sentence
+
+reversed_list <- []
+i <- 0
+x <- 0
+
+for k <- 0 TO LENGTH(s) 
+	x <- x + 1
+	if s[k] = ' ' or x = LENGTH(s)
+		// Insert the word at the start of the list pushing
+		// any previous items to the back.
+		reversed_list INSERT AT POSITION 0 (s[i..x])
+		i = x
+	else
+		continue
+	
