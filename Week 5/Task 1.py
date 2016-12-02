@@ -5,17 +5,17 @@ def mostAscNumbers(l):
     L = []
     start = None
     end = None
-    print('Length: ' + str(len(l)))
+    #print('Length: ' + str(len(l)))
     for i in range(0,len(l)):
         j = l[i]
         if len(l) > i+1:
             k = l[i+1]
         else:
             k = l[len(l)-1]
-        print('---------------------')
-        print('I: ' + str(i))
-        print('J: ' + str(j))
-        print('K: ' + str(k))
+        #print('---------------------')
+        #print('I: ' + str(i))
+        #print('J: ' + str(j))
+        #print('K: ' + str(k))
         if k > j:
             if start == None:
                 start = i
@@ -30,6 +30,7 @@ def mostAscNumbers(l):
                 start = None
     return L
 
+print('Original list: ' + str(l))
 print(mostAscNumbers(l))
     
     

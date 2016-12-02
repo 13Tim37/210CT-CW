@@ -1,0 +1,7 @@
+PERFECT-NUMBER(I)
+   // To get a perfect square we find the square root of A and floor it.
+   n <- (I ** 0.5)//1
+   return n
+
+I <- positive integer input
+PERFECT-NUMBER(I)

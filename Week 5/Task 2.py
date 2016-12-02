@@ -82,6 +82,7 @@ class List(object):
                 self.tail = prevNode
 
     def append(self,x):
+        # Add a value to the end of the linked list.
         if self.tail:
             self.tail.next = x
             x.prev = self.tail
@@ -91,6 +92,7 @@ class List(object):
             self.head = x
 
     def len(self):
+        # Return the length of the linked list.
         length = 0
         node = self.head
 
@@ -105,6 +107,7 @@ class List(object):
         return length
 
     def __add__(l1,l2):
+        # Add two linked lists together to combine them.
 
         x = l1
         y = l2

@@ -1,4 +1,13 @@
-n = int(input('Enter integer: '))
+def init():
+    # Check if input is an int
+    try:
+        n = int(input('Enter integer: '))
+    except ValueError:
+        print('Only enter an integer number!')
+        n = init()
+    return n
+
+n = init()
 
 def factorial(n):
     if n == 0 or n == 1:

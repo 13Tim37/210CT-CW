@@ -2,21 +2,28 @@ list <- INPUT list
 low <- INPUT lowest value in range
 high <- INPUT highest value in range
 
-FUNCTION BINARY-SEARCH(list, low, high):
-    L <- LENGTH(list)                                           //1
-    r <- list[round(L/2)]                                       //1
-    IF L = 1 AND r < low OR r > high+1                          //3
-        RETURN False                                            //1
-    ELSEIF r >= low AND r <= high                               //1
-        RETURN True                                             //1
-    ELSEIF low > r                                              //1
-        RETURN BINARY-SEARCH(list[round(L/2)..-1],low,high)     //log2(n)
-    ELSEIF high+1 < r                                           //1
-        RETURN BINARY-SEARCH(list[0..round(L/2)],low,high)      //log2(n)
-    ELSE                                                        //1
-        RETURN False                                            //1
+FUNCTION BINARY-SEARCH(LIST, LOW, HIGH):
+    L <- LENGTH(LIST)                                           //1
 
-OUTPUT BINARY-SEARCH(list,low,high)
+    IF L = 1
+        index = 0
+    ELSE
+	index = INT(((L/2)+0.5)//1)
+
+    r <- LIST[index]                                            //1
+
+    IF L = 1 AND r < LOW OR r > HIGH+1                          //3
+        RETURN FALSE                                            //1
+    ELSEIF r >= LOW AND r <= HIGH                               //1
+        RETURN TRUE                                             //1
+    ELSEIF LOW > r                                              //1
+        RETURN BINARY-SEARCH(LIST[index..],LOW,HIGH)            //log2(n)
+    ELSEIF HIGH < r                                             //1
+        RETURN BINARY-SEARCH(LIST[..index],LOW,HIGH)            //log2(n)
+    ELSE                                                        //1
+        RETURN FALSE                                            //1
+
+OUTPUT BINARY-SEARCH(LIST,LOW,HIGH)
 
 
 // Efficiency total: 2log2(n) + 12

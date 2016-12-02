@@ -1,0 +1,11 @@
+s = INPUT string
+
+REMOVE-VOWELS(S, I <- 0):
+    S <- list(S)
+    vowels <- ['a','e','i','o','u']
+    if S[I] in vowels:
+        S[I] <- ''
+    if I = LENGTH(S)-1:
+        return S
+    else:
+        return ''.JOIN(REMOVE-VOWELS(S,I+1))

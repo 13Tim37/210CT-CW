@@ -1,14 +1,17 @@
-from math import floor
-
-def perfectNumber(x):
+def perfectNumber(i):
     # To find the closest square number for x: sqrt and floor.
-    n = floor(x**0.5)
+    n = int((i**0.5)//1)
     return n
 
-p = int(input('Please enter a positive integer: '))
+def init():
+    try:
+        i = int(input('Please enter a positive integer: '))
+    except ValueError:
+        print('Only enter a positive integer!')
+        i = init()
+    return i
 
-j = perfectNumber(p)
-print('Smallest perfect squre is {} x {}'.format(j,j))
+i = init()
 
-#PERFECT-NUMBER(A)
-#    n = floor(A)
+x = perfectNumber(i)
+print('Smallest perfect squre is {} x {}'.format(x,x))

@@ -20,7 +20,18 @@ def shuffle_list(int_list):
         
     return(random_arrange(int_list))                                         #1
 
-int_list = input("Enter a list of integers seperated by ',' >> ").split(',') 
+def init():
+    # If value error occurs user has entered non-integers into the input.
+    # We let them know and retry the input.
+    try:
+        int_list = list(map(int, input("Enter a list of integers seperated by ',' >> ").split(',')))
+    except ValueError or SyntaxError:
+        print('Only enter a list of integers!')
+        int_list = init()
+    return int_list
+
+int_list = init()
+
 print('The original list is: ' + str(int_list))                              
 print('The shuffled list is: ' + str(shuffle_list(int_list)))                
 

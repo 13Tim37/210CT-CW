@@ -1,0 +1,13 @@
+N <- INPUT integer
+FUNCTION CHECK-PRIME(N, X)
+    IF N < 2
+        RETURN False
+    IF X = 1
+        RETURN True
+    ELSE
+        IF N % X = 0
+            RETURN False
+        ELSE
+            RETURN CHECK-PRIME(N, X - 1)
+
+OUTPUT CHECK-PRIME(N, N-1)

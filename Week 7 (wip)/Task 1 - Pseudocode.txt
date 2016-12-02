@@ -1,0 +1,50 @@
+class NODE
+    INIT(SELF, I):
+        SELF.edges <- []
+        SELF.id <- I
+
+class GRAPH
+
+    INIT(SELF):
+        SELF.count <- 0
+        SELF.nodes <- []
+        SELF.edges <- []
+
+    ADD-NODE(SELF):
+        node = NODE(LENGTH(SELF.nodes)+1)
+        SELF.nodes.append(NODE)
+        return NODE
+
+    ADD-EDGE(SELF, NODE1, NODE2):
+        if [NODE1, NODE2] not in SELF.edges:
+            SELF.edges.append([NODE1, NODE2])
+        if NODE2 not in NODE1.edges:
+            NODE1.edges.append(NODE2)
+        if NODE1 not in NODE2.edges:
+            NODE2.edges.append(NODE1)
+
+    DEPTH-FIRST-SEARCH(SELF, NODE):
+        visited <- []
+        stack <- []
+        stack.append(SELF.nodes[NODE])
+        while LENGTH(stack) > 0:
+            NODE <- stack.pop()
+            if NODE not in visited:
+                visited.append(NODE)
+                for edge in NODE.edges:
+                    stack.append(edge)
+        return visited
+
+    BREDTH-FIRST-SEARCH(SELF, NODE):
+        visited <- []
+        queue <- []
+        queue.append(SELF.nodes[NODE])
+        while LENGTH(queue) > 0:
+            NODE <- queue.pop(0)
+            if NODE not in visited:
+                visited.append(NODE)
+                for edge in NODE.edges:
+                    queue.append(edge)
+        return visited
+
+
