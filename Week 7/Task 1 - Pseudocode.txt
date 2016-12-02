@@ -11,7 +11,7 @@ class GRAPH
         SELF.edges <- []
 
     ADD-NODE(SELF):
-        node = NODE(LENGTH(SELF.nodes)+1)
+        node <- NODE(LENGTH(SELF.nodes)+1)
         SELF.nodes.append(NODE)
         return NODE
 
